@@ -1,5 +1,7 @@
 ## IMDB search catalogue backend
 
+The server listens on port `8000`. You can build the image locally using `go build` when you are inside the app folder. You will need the env file to run the image locally. To run the image after building, just run `./app .env`
+
 ### Endpoints
 
 1. POST `/v1/add/user`
