@@ -140,7 +140,7 @@ The endpoint also supports pagination. `from` and `size` can be used for paginat
 
 Example request:
 
-`GET: http://localhost:8000//v1/get/movie?name=star&size=3`
+`GET: http://localhost:8000/v1/get/movie?name=star&size=3`
 
 Example response:
 status code: 200
