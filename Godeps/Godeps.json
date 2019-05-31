@@ -1,0 +1,79 @@
+{
+	"ImportPath": "github.com/raazcrzy/imdb",
+	"GoVersion": "go1.11",
+	"GodepVersion": "v80",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/joho/godotenv",
+			"Comment": "v1.3.0-10-g5c0e6c6",
+			"Rev": "5c0e6c6ab1a0a9ef0a8822cba3a05d62f7dad941"
+		},
+		{
+			"ImportPath": "github.com/konsorten/go-windows-terminal-sequences",
+			"Comment": "v1.0.1",
+			"Rev": "5c8c8bd35d3832f5d134ae1e1e375b69a4d25242"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "v1.0.0-6-g9eb73ef",
+			"Rev": "9eb73efc1fcc404148b56765b0d3f61d9a5ef8ee"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "v1.0.0-6-g9eb73ef",
+			"Rev": "9eb73efc1fcc404148b56765b0d3f61d9a5ef8ee"
+		},
+		{
+			"ImportPath": "github.com/mailru/easyjson",
+			"Rev": "60711f1a8329503b04e1c88535f419d0bb440bff"
+		},
+		{
+			"ImportPath": "github.com/mailru/easyjson/buffer",
+			"Rev": "60711f1a8329503b04e1c88535f419d0bb440bff"
+		},
+		{
+			"ImportPath": "github.com/mailru/easyjson/jlexer",
+			"Rev": "60711f1a8329503b04e1c88535f419d0bb440bff"
+		},
+		{
+			"ImportPath": "github.com/mailru/easyjson/jwriter",
+			"Rev": "60711f1a8329503b04e1c88535f419d0bb440bff"
+		},
+		{
+			"ImportPath": "github.com/pkg/errors",
+			"Comment": "v0.8.1-24-g27936f6",
+			"Rev": "27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7"
+		},
+		{
+			"ImportPath": "github.com/sirupsen/logrus",
+			"Comment": "v1.4.2-2-g2a22dbe",
+			"Rev": "2a22dbedbad1fd454910cd1f44f210ef90c28464"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "146acd28ed5894421fb5aac80ca93bc1b1f46f87"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "4497e2df6f9e69048a54498c7affbbec3294ad47"
+		},
+		{
+			"ImportPath": "gopkg.in/olivere/elastic.v5",
+			"Comment": "v5.0.76",
+			"Rev": "fc3063a8c0686f64e94f4b2c17eb140c06eb6793"
+		},
+		{
+			"ImportPath": "gopkg.in/olivere/elastic.v5/config",
+			"Comment": "v5.0.76",
+			"Rev": "fc3063a8c0686f64e94f4b2c17eb140c06eb6793"
+		},
+		{
+			"ImportPath": "gopkg.in/olivere/elastic.v5/uritemplates",
+			"Comment": "v5.0.76",
+			"Rev": "fc3063a8c0686f64e94f4b2c17eb140c06eb6793"
+		}
+	]
+}
