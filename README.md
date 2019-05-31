@@ -88,7 +88,7 @@ This endpoint deletes a movie from the database. The `movie_id` must be present 
 
 Example request:
 
-`DELETE: http://localhost:8000//v1/remove/movie?movie_id=AWsI0f0KI22c2BCr6GxK`
+`DELETE: http://localhost:8000/v1/remove/movie?movie_id=AWsI0f0KI22c2BCr6GxK`
 
 Example response: 
 status code: 200
