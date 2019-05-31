@@ -25,6 +25,6 @@ func main() {
 	initLogger()
 	dbConnections.InitDbs()
 	getRoutes()
-	fmt.Println("Server starting...")
+	fmt.Println("Server started...")
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }

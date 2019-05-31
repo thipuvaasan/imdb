@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"regexp"
 	"strconv"
 	"time"
 
@@ -11,6 +12,8 @@ import (
 
 	"github.com/raazcrzy/imdb/models"
 )
+
+var emailRegexp = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
 /* addUserHandler handles the incoming requests to create a new user
 The expected request body structure is:
@@ -69,6 +72,7 @@ func addUserHandler(w http.ResponseWriter, r *http.Request) {
 		writeBack(w, returnMsg, nil)
 		return
 	}
+
 	// check if request make is admin before creating another admin user
 	ok = (isAdmin(email) || isSuperAdmin(email) || body.Role != "admin")
 	if body.Role == "" {
@@ -78,6 +82,22 @@ func addUserHandler(w http.ResponseWriter, r *http.Request) {
 		if body.Email == "" || body.UserName == "" || body.UserPassword == "" || body.Name == "" {
 			returnMsg = map[string]interface{}{
 				"message": "one or more fields missing in request body",
+				"status":  400,
+			}
+			writeBack(w, returnMsg, nil)
+			return
+		}
+		if !emailRegexp.MatchString(body.Email) {
+			returnMsg = map[string]interface{}{
+				"message": "invalid email present in the request body",
+				"status":  400,
+			}
+			writeBack(w, returnMsg, nil)
+			return
+		}
+		if len(body.UserName) > 32 || len(body.UserPassword) > 32 {
+			returnMsg = map[string]interface{}{
+				"message": "user_name and password has a max limit of 32 characters",
 				"status":  400,
 			}
 			writeBack(w, returnMsg, nil)
@@ -152,6 +172,14 @@ func removeUserHandler(w http.ResponseWriter, r *http.Request) {
 	if body.Email == "" {
 		returnMsg = map[string]interface{}{
 			"message": "one or more fields missing in request body",
+			"status":  400,
+		}
+		writeBack(w, returnMsg, nil)
+		return
+	}
+	if !emailRegexp.MatchString(body.Email) {
+		returnMsg = map[string]interface{}{
+			"message": "invalid email present in the request body",
 			"status":  400,
 		}
 		writeBack(w, returnMsg, nil)

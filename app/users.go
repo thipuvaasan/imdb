@@ -75,6 +75,12 @@ func createUser(user models.User) (map[string]interface{}, error) {
 				"status":  400,
 			}, nil
 		}
+		if err.Error() == `pq: duplicate key value violates unique constraint "users_user_password_key"` {
+			return map[string]interface{}{
+				"message": "user_name not unique",
+				"status":  400,
+			}, nil
+		}
 		Log.Errorln(err)
 		return nil, err
 	}
@@ -93,6 +99,6 @@ func deleteUser(user string) (map[string]interface{}, error) {
 	}
 	return map[string]interface{}{
 		"message": "user deleted successfully",
-		"status":  201,
+		"status":  200,
 	}, nil
 }

@@ -4,7 +4,7 @@ import (
 	ctx "context"
 	"encoding/json"
 
-	"gopkg.in/olivere/elastic.v5"
+	elastic "gopkg.in/olivere/elastic.v5"
 
 	"github.com/raazcrzy/imdb/models"
 	"github.com/raazcrzy/imdb/utils"
@@ -36,7 +36,7 @@ func deleteMovie(movieID string) (map[string]interface{}, error) {
 	}
 	return map[string]interface{}{
 		"message": "movie deleted successfully",
-		"status":  201,
+		"status":  200,
 	}, nil
 }
 
@@ -51,7 +51,7 @@ func editMovie(movie models.Movie) (map[string]interface{}, error) {
 	}
 	return map[string]interface{}{
 		"message": "movie updated successfully",
-		"status":  201,
+		"status":  200,
 	}, nil
 }
 

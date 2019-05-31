@@ -40,7 +40,7 @@ func InitDbs() {
 	CREATE TABLE IF NOT EXISTS imdb.users (
 		email VARCHAR(500) NOT NULL PRIMARY KEY,
 		created_at integer NOT NULL,
-		user_password VARCHAR(32) NOT NULL UNIQUE,
+		user_password VARCHAR(32) NOT NULL,
 		user_id varchar(32) NOT NULL UNIQUE,
 		role varchar(6) NOT NULL
 	);`)
@@ -48,6 +48,12 @@ func InitDbs() {
 		t.Rollback()
 		log.Fatalln(err)
 	}
+	_, err = utils.PgDB.Exec(`
+	INSERT INTO imdb.users 
+	("email", "user_password",
+	"user_id", "role",
+	"name", "created_at")
+	VALUES ($1, 'barx', 'foox', 'admin', 'auto created', 1559217988);`, utils.Admins[0])
 	err = t.Commit()
 	if err != nil {
 		log.Fatalln(err)
